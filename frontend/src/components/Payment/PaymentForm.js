@@ -25,11 +25,11 @@ export default function PaymentForm() {
 
   if (!eventData) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-center">
-          <CreditCard className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <h2 className="text-xl font-semibold text-gray-600 mb-2">No event selected</h2>
-          <button onClick={() => navigate('/events')} className="text-blue-600 hover:underline">
+      <div className="min-h-screen flex items-center justify-center bg-[#050505]">
+        <div className="text-center p-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
+          <CreditCard className="w-16 h-16 text-white/20 mx-auto mb-4" />
+          <h2 className="text-xl font-semibold text-white mb-2">No event selected</h2>
+          <button onClick={() => navigate('/events')} className="text-[#00d4ff] hover:underline">
             Browse Events
           </button>
         </div>
@@ -97,43 +97,43 @@ export default function PaymentForm() {
 
   if (paymentComplete) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50">
+      <div className="min-h-screen flex items-center justify-center bg-[#050505]">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="bg-white rounded-2xl shadow-lg p-8 max-w-md w-full mx-4 text-center"
+          className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 max-w-md w-full mx-4 text-center shadow-2xl"
         >
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle className="w-8 h-8 text-green-600" />
+          <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-green-500/30">
+            <CheckCircle className="w-10 h-10 text-green-400" />
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Payment Successful!</h2>
-          <p className="text-gray-500 mb-6">
+          <h2 className="text-3xl font-bold text-white mb-2">Success!</h2>
+          <p className="text-gray-400 mb-8">
             {quantity} ticket{quantity > 1 ? 's' : ''} booked for {eventData.title}
           </p>
-          <div className="bg-gray-50 rounded-xl p-4 mb-6 text-left text-sm">
-            <div className="flex justify-between mb-2">
-              <span className="text-gray-400">Event</span>
-              <span className="font-medium">{eventData.title}</span>
+          <div className="bg-white/5 border border-white/5 rounded-2xl p-6 mb-8 text-left text-sm backdrop-blur-md">
+            <div className="flex justify-between mb-3">
+              <span className="text-gray-500">Event</span>
+              <span className="font-semibold text-white">{eventData.title}</span>
             </div>
-            <div className="flex justify-between mb-2">
-              <span className="text-gray-400">Quantity</span>
-              <span className="font-medium">{quantity}</span>
+            <div className="flex justify-between mb-3">
+              <span className="text-gray-500">Quantity</span>
+              <span className="font-semibold text-white">{quantity}</span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-400">Total Paid</span>
-              <span className="font-bold text-green-600">₹{totalAmount}</span>
+            <div className="flex justify-between pt-3 border-t border-white/5">
+              <span className="text-gray-500">Total Paid</span>
+              <span className="font-bold text-xl text-[#00ff88]">₹{totalAmount}</span>
             </div>
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-col gap-3">
             <button
               onClick={() => navigate('/my-tickets')}
-              className="flex-1 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition font-medium"
+              className="w-full py-4 bg-gradient-to-r from-[#00d4ff] to-[#9d00ff] text-white rounded-2xl hover:brightness-110 transition font-bold shadow-lg shadow-[#00d4ff]/20"
             >
               View Tickets
             </button>
             <button
               onClick={() => navigate('/events')}
-              className="flex-1 py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition font-medium"
+              className="w-full py-4 bg-white/5 text-white border border-white/10 rounded-2xl hover:bg-white/10 transition font-semibold"
             >
               Browse More
             </button>
@@ -144,66 +144,68 @@ export default function PaymentForm() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl mx-auto">
+    <div className="min-h-screen bg-[#050505] py-24 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(at_0%_0%,rgba(0,212,255,0.05)_0px,transparent_50%),radial-gradient(at_100%_100%,rgba(157,0,255,0.05)_0px,transparent_50%)]">
+      <div className="max-w-4xl mx-auto">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-gray-500 hover:text-gray-700 mb-6 transition"
+          className="flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition font-medium"
         >
           <ArrowLeft className="w-4 h-4" />
           Back
         </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-          <div className="md:col-span-3">
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <CreditCard className="w-6 h-6 text-blue-600" />
-                <h2 className="text-xl font-semibold text-gray-900">Payment Details</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+          <div className="lg:col-span-3">
+            <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-2xl h-full">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-[#00d4ff]/10 rounded-xl flex items-center justify-center border border-[#00d4ff]/20">
+                  <CreditCard className="w-6 h-6 text-[#00d4ff]" />
+                </div>
+                <h2 className="text-2xl font-bold text-white">Payment</h2>
               </div>
 
               <AnimatePresence mode="wait">
                 {step === 'review' && (
                   <motion.div
                     key="review"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
                   >
-                    <div className="bg-gray-50 rounded-xl p-4 mb-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="font-semibold text-gray-700">{eventData.title}</h3>
-                        <span className="text-lg font-bold text-gray-900">₹{eventData.price}</span>
+                    <div className="bg-white/5 border border-white/5 rounded-2xl p-6 mb-8">
+                      <div className="flex items-center justify-between mb-6">
+                        <h3 className="font-bold text-xl text-white">{eventData.title}</h3>
+                        <span className="text-2xl font-black text-white">₹{eventData.price}</span>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <label className="text-sm text-gray-500">Quantity:</label>
-                        <div className="flex items-center gap-2">
+                      <div className="flex items-center justify-between py-4 border-t border-white/5">
+                        <label className="text-gray-400 font-medium">Quantity</label>
+                        <div className="flex items-center gap-4">
                           <button
                             onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                            className="w-10 h-10 sm:w-8 sm:h-8 rounded-lg border border-gray-200 flex items-center justify-center hover:bg-gray-100 active:bg-gray-200"
+                            className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 active:scale-95 transition text-white"
                           >
                             -
                           </button>
-                          <span className="w-10 sm:w-8 text-center font-medium">{quantity}</span>
+                          <span className="w-6 text-center font-bold text-xl text-white">{quantity}</span>
                           <button
                             onClick={() => setQuantity(Math.min(availableSpots, quantity + 1))}
-                            className="w-10 h-10 sm:w-8 sm:h-8 rounded-lg border border-gray-200 flex items-center justify-center hover:bg-gray-100 active:bg-gray-200"
+                            className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 active:scale-95 transition text-white"
                           >
                             +
                           </button>
                         </div>
-                        <span className="text-xs text-gray-400">({availableSpots} available)</span>
                       </div>
-                      <div className="mt-4 pt-4 border-t border-gray-200 flex justify-between">
-                        <span className="font-semibold text-gray-700">Total</span>
-                        <span className="font-bold text-lg text-gray-900">₹{totalAmount}</span>
-                      </div>
+                      <p className="text-right text-xs text-[#00d4ff] mt-2">{availableSpots} spots available</p>
+                    </div>
+                    <div className="flex justify-between items-center mb-8 px-2">
+                      <span className="text-gray-400 font-semibold">Total Amount</span>
+                      <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00d4ff] to-[#9d00ff]">₹{totalAmount}</span>
                     </div>
                     <button
                       onClick={() => setStep('card')}
-                      className="w-full py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition font-medium"
+                      className="w-full py-4 bg-gradient-to-r from-[#00d4ff] to-[#9d00ff] text-white rounded-2xl hover:brightness-110 transition font-bold shadow-lg shadow-[#00d4ff]/20"
                     >
-                      Proceed to Payment
+                      Proceed to Checkout
                     </button>
                   </motion.div>
                 )}
@@ -211,98 +213,99 @@ export default function PaymentForm() {
                 {step === 'card' && (
                   <motion.div
                     key="card"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
                   >
-                    <div className="mb-6">
-                      <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-6 text-white mb-6">
-                        <div className="flex justify-between items-start mb-8">
-                          <CreditCard className="w-8 h-8" />
-                          <Lock className="w-5 h-5 opacity-70" />
+                    <div className="mb-8">
+                      <div className="bg-gradient-to-br from-[#00d4ff] to-[#9d00ff] rounded-2xl p-8 text-white mb-8 shadow-xl relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl group-hover:bg-white/20 transition-all duration-500"></div>
+                        <div className="flex justify-between items-start mb-12 relative z-10">
+                          <CreditCard className="w-10 h-10" />
+                          <Lock className="w-6 h-6 opacity-50" />
                         </div>
-                        <p className="text-lg font-mono tracking-wider mb-4">
+                        <p className="text-2xl font-mono tracking-[0.2em] mb-8 relative z-10">
                           {cardDetails.cardNumber || '•••• •••• •••• ••••'}
                         </p>
-                        <div className="flex justify-between text-sm">
+                        <div className="flex justify-between text-sm relative z-10">
                           <div>
-                            <p className="text-blue-200 text-xs">Card Holder</p>
-                            <p className="font-medium">{cardDetails.cardName || 'Your Name'}</p>
+                            <p className="text-white/60 text-xs uppercase tracking-widest mb-1">Card Holder</p>
+                            <p className="font-bold tracking-wide">{cardDetails.cardName || 'YOUR NAME'}</p>
                           </div>
                           <div className="text-right">
-                            <p className="text-blue-200 text-xs">Expires</p>
-                            <p className="font-medium">{cardDetails.expiry || 'MM/YY'}</p>
+                            <p className="text-white/60 text-xs uppercase tracking-widest mb-1">Expires</p>
+                            <p className="font-bold">{cardDetails.expiry || 'MM/YY'}</p>
                           </div>
                         </div>
                       </div>
 
-                      <div className="space-y-4">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Card Number</label>
+                      <div className="space-y-5">
+                        <div className="group">
+                          <label className="block text-sm font-semibold text-gray-400 mb-2 group-focus-within:text-[#00d4ff] transition">Card Number</label>
                           <input
                             type="text"
                             value={cardDetails.cardNumber}
                             onChange={(e) => handleCardChange('cardNumber', e.target.value)}
                             placeholder="4242 4242 4242 4242"
-                            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                            className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-[#00d4ff] focus:bg-white/10 outline-none transition text-white placeholder:text-gray-600"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Cardholder Name</label>
+                          <label className="block text-sm font-semibold text-gray-400 mb-2">Cardholder Name</label>
                           <input
                             type="text"
                             value={cardDetails.cardName}
                             onChange={(e) => handleCardChange('cardName', e.target.value)}
-                            placeholder="John Doe"
-                            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                            placeholder="JOHN DOE"
+                            className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-[#00d4ff] focus:bg-white/10 outline-none transition text-white placeholder:text-gray-600 uppercase"
                           />
                         </div>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 gap-5">
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Expiry Date</label>
+                            <label className="block text-sm font-semibold text-gray-400 mb-2">Expiry Date</label>
                             <input
                               type="text"
                               value={cardDetails.expiry}
                               onChange={(e) => handleCardChange('expiry', e.target.value)}
                               placeholder="MM/YY"
-                              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                              className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-[#00d4ff] focus:bg-white/10 outline-none transition text-white placeholder:text-gray-600"
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">CVV</label>
+                            <label className="block text-sm font-semibold text-gray-400 mb-2">CVV</label>
                             <input
-                              type="text"
+                              type="password"
                               value={cardDetails.cvv}
                               onChange={(e) => handleCardChange('cvv', e.target.value)}
                               placeholder="•••"
-                              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                              className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-[#00d4ff] focus:bg-white/10 outline-none transition text-white placeholder:text-gray-600"
                             />
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex gap-3">
+                    <div className="flex gap-4">
                       <button
                         onClick={() => setStep('review')}
-                        className="px-6 py-3 border border-gray-200 text-gray-700 rounded-xl hover:bg-gray-50 transition font-medium"
+                        className="px-8 py-4 bg-white/5 border border-white/10 text-white rounded-2xl hover:bg-white/10 transition font-bold"
                       >
                         Back
                       </button>
                       <button
                         onClick={handlePayment}
                         disabled={loading}
-                        className="flex-1 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700 transition font-medium disabled:opacity-50 flex items-center justify-center gap-2"
+                        className="flex-1 py-4 bg-[#00ff88] text-black rounded-2xl hover:brightness-110 transition font-black disabled:opacity-50 flex items-center justify-center gap-3 shadow-lg shadow-[#00ff88]/20"
                       >
                         {loading ? (
                           <>
                             <Loader className="w-5 h-5 animate-spin" />
-                            Processing...
+                            PROCESSING...
                           </>
                         ) : (
                           <>
-                            <Lock className="w-4 h-4" />
-                            Pay ₹{totalAmount}
+                            <Lock className="w-5 h-5" />
+                            PAY ₹{totalAmount}
                           </>
                         )}
                       </button>
@@ -313,36 +316,41 @@ export default function PaymentForm() {
             </div>
           </div>
 
-          <div className="md:col-span-2">
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-              <h3 className="font-semibold text-gray-900 mb-4">Order Summary</h3>
-              <div className="space-y-3 text-sm">
+          <div className="lg:col-span-2">
+            <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-2xl sticky top-32">
+              <h3 className="font-bold text-xl text-white mb-8 flex items-center gap-3">
+                <span className="w-1.5 h-6 bg-[#9d00ff] rounded-full"></span>
+                Summary
+              </h3>
+              <div className="space-y-6">
                 {eventData.image && (
-                  <img src={eventData.image} alt={eventData.title} className="w-full h-32 object-cover rounded-lg mb-3" />
+                  <img src={eventData.image} alt={eventData.title} className="w-full h-40 object-cover rounded-2xl mb-4 border border-white/10" />
                 )}
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Event</span>
-                  <span className="font-medium text-right">{eventData.title}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Date</span>
-                  <span className="font-medium">{new Date(eventData.date).toLocaleDateString()}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Venue</span>
-                  <span className="font-medium">{eventData.venue}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Price per ticket</span>
-                  <span className="font-medium">₹{eventData.price}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Quantity</span>
-                  <span className="font-medium">{quantity}</span>
-                </div>
-                <div className="pt-3 border-t border-gray-100 flex justify-between">
-                  <span className="font-semibold text-gray-900">Total</span>
-                  <span className="font-bold text-lg text-gray-900">₹{totalAmount}</span>
+                <div className="space-y-4 text-sm">
+                  <div className="flex justify-between items-start gap-4">
+                    <span className="text-gray-500 font-medium">Event</span>
+                    <span className="font-bold text-white text-right">{eventData.title}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-500 font-medium">Date</span>
+                    <span className="font-semibold text-white">{new Date(eventData.date).toLocaleDateString()}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-500 font-medium">Venue</span>
+                    <span className="font-semibold text-white">{eventData.venue}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-500 font-medium">Ticket Price</span>
+                    <span className="font-semibold text-white">₹{eventData.price}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-500 font-medium">Quantity</span>
+                    <span className="font-semibold text-white">{quantity}</span>
+                  </div>
+                  <div className="pt-6 border-t border-white/10 flex justify-between items-center">
+                    <span className="font-bold text-white text-lg">Total</span>
+                    <span className="font-black text-2xl text-transparent bg-clip-text bg-gradient-to-r from-[#00d4ff] to-[#9d00ff]">₹{totalAmount}</span>
+                  </div>
                 </div>
               </div>
             </div>
