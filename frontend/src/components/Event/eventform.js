@@ -123,7 +123,7 @@ const EventForm = () => {
       
       // Make the API call
       const response = await axios.post(
-        'http://localhost:3001/events',
+        '/api/events',
         eventPayload,
         {
           headers: {

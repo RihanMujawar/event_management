@@ -31,7 +31,7 @@ const EventList = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get('http://localhost:3001/events');
+      const response = await axios.get('/api/events');
       setEvents(response.data);
     } catch (error) {
       console.error('Error fetching events:', error);

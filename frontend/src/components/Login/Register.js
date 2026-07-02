@@ -36,7 +36,7 @@ const Register = () => {
     const loadingToast = toast.loading('Creating your account...');
 
     try {
-      const response = await axios.post('http://localhost:3001/register', {
+      const response = await axios.post('/api/register', {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,

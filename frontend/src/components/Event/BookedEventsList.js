@@ -20,7 +20,7 @@ const BookedEventsList = () => {
       console.log('Fetching booked events...');
       
       const response = await axios.get(
-        'http://localhost:3001/user/booked-events',
+        '/api/user/booked-events',
         {
           headers: { 
             'Authorization': `Bearer ${token}`
@@ -57,7 +57,7 @@ const BookedEventsList = () => {
   const handleCancelBooking = async (eventId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3001/events/${eventId}/book`,
+        `/api/events/${eventId}/book`,
         {
           headers: { 
             'Authorization': `Bearer ${token}`

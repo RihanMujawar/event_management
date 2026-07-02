@@ -51,7 +51,7 @@ const Login = () => {
     const loadingToast = toast.loading('Signing in...');
 
     try {
-      const response = await axios.post('http://localhost:3001/login', formData);
+      const response = await axios.post('/api/login', formData);
       
       if (response.data.success) {
         // Store auth data

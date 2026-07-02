@@ -42,10 +42,6 @@ app.use(express.urlencoded({ extended: true }));
 // Request logging middleware
 app.use((req, res, next) => {
     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-    // console.log('Headers:', {
-    //     ...req.headers,
-    //     authorization: req.headers.authorization ? '***' : undefined
-    // });
     if (['POST', 'PUT'].includes(req.method)) {
         console.log('Body:', req.body);
     }
@@ -57,8 +53,17 @@ mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log('Connected to MongoDB'))
 .catch((err) => console.error('MongoDB connection error:', err));
 
+// Import routes
+const eventRoutes = require('./controller/eventRoute');
+const userRoutes = require('./controller/userController');
+const paymentRoutes = require('./controller/paymentRoute');
+const analyticsRoutes = require('./controller/analyticsRoute');
+
+// Determine the base path for routes
+const routerPrefix = process.env.NETLIFY ? '/.netlify/functions/api' : '';
+
 // Auth Routes
-app.post('/register', async (req, res) => {
+app.post(routerPrefix + '/register', async (req, res) => {
     try {
         const { name, email, phone, password } = req.body;
 
@@ -92,7 +97,7 @@ app.post('/register', async (req, res) => {
     }
 });
 
-app.post('/login', async (req, res) => {
+app.post(routerPrefix + '/login', async (req, res) => {
     try {
         const { email, password } = req.body;
 
@@ -136,17 +141,11 @@ app.post('/login', async (req, res) => {
     }
 });
 
-// Import routes
-const eventRoutes = require('./controller/eventRoute');
-const userRoutes = require('./controller/userController');
-const paymentRoutes = require('./controller/paymentRoute');
-const analyticsRoutes = require('./controller/analyticsRoute');
-
 // Apply routes with path prefix
-app.use('/', eventRoutes);
-app.use('/user', userRoutes);
-app.use('/api', paymentRoutes);
-app.use('/api/analytics', analyticsRoutes);
+app.use(routerPrefix + '/', eventRoutes);
+app.use(routerPrefix + '/user', userRoutes);
+app.use(routerPrefix + '/api', paymentRoutes);
+app.use(routerPrefix + '/api/analytics', analyticsRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -177,8 +176,12 @@ app.use((err, req, res, next) => {
     });
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-    console.log('Environment:', process.env.NODE_ENV);
-});
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3001;
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+        console.log('Environment:', process.env.NODE_ENV);
+    });
+}
+
+module.exports = app;

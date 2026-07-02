@@ -19,7 +19,7 @@ const EventCard = ({ event, isAdmin, onEventDeleted, fetchEvents }) => {
 
     if (window.confirm('Are you sure you want to delete this event?')) {
       try {
-        await axios.delete(`http://localhost:3001/events/${event._id}`, {
+        await axios.delete(`/api/events/${event._id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         toast.success('Event deleted successfully');
@@ -48,7 +48,7 @@ const EventCard = ({ event, isAdmin, onEventDeleted, fetchEvents }) => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:3001/events/${event._id}/book`,
+        `/api/events/${event._id}/book`,
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -70,7 +70,7 @@ const EventCard = ({ event, isAdmin, onEventDeleted, fetchEvents }) => {
 
   const getUserName = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:3001/user/${userId}`);
+      const response = await axios.get(`/api/user/${userId}`);
       return response.data.user.name;
     } catch (error) {
       return 'Unknown User';

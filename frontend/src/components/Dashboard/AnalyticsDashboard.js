@@ -10,7 +10,7 @@ import {
   CheckCircle, Clock
 } from 'lucide-react';
 
-const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const API = process.env.REACT_APP_API_URL || '/api';
 
 const COLORS = ['#00d4ff', '#9d00ff', '#00ff88', '#ffb800', '#ff3366', '#ffffff'];
 
