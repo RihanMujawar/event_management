@@ -6,8 +6,6 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import './Events.css';
 
-const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
-
 const BookedEventsList = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +20,7 @@ const BookedEventsList = () => {
       console.log('Fetching booked events...');
       
       const response = await axios.get(
-        `${API}/user/booked-events`,
+        'http://localhost:3001/user/booked-events',
         {
           headers: { 
             'Authorization': `Bearer ${token}`
@@ -59,7 +57,7 @@ const BookedEventsList = () => {
   const handleCancelBooking = async (eventId) => {
     try {
       const response = await axios.delete(
-        `${API}/events/${eventId}/book`,
+        `http://localhost:3001/events/${eventId}/book`,
         {
           headers: { 
             'Authorization': `Bearer ${token}`

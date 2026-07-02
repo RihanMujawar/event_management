@@ -15,8 +15,6 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import './eventform.css';
 
-const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
-
 const EventForm = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -125,7 +123,7 @@ const EventForm = () => {
       
       // Make the API call
       const response = await axios.post(
-        `${API}/events`,
+        'http://localhost:3001/events',
         eventPayload,
         {
           headers: {

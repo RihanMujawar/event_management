@@ -5,8 +5,6 @@ import { Calendar, MapPin, Users, Clock, Edit, Trash2, CheckCircle, User } from 
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
-
 const EventCard = ({ event, isAdmin, onEventDeleted, fetchEvents }) => {
   const navigate = useNavigate();
   const [showBookings, setShowBookings] = useState(false);
@@ -21,7 +19,7 @@ const EventCard = ({ event, isAdmin, onEventDeleted, fetchEvents }) => {
 
     if (window.confirm('Are you sure you want to delete this event?')) {
       try {
-        await axios.delete(`${API}/events/${event._id}`, {
+        await axios.delete(`http://localhost:3001/events/${event._id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         toast.success('Event deleted successfully');
@@ -50,7 +48,7 @@ const EventCard = ({ event, isAdmin, onEventDeleted, fetchEvents }) => {
 
     try {
       const response = await axios.delete(
-        `${API}/events/${event._id}/book`,
+        `http://localhost:3001/events/${event._id}/book`,
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -72,7 +70,7 @@ const EventCard = ({ event, isAdmin, onEventDeleted, fetchEvents }) => {
 
   const getUserName = async (userId) => {
     try {
-      const response = await axios.get(`${API}/user/${userId}`);
+      const response = await axios.get(`http://localhost:3001/user/${userId}`);
       return response.data.user.name;
     } catch (error) {
       return 'Unknown User';

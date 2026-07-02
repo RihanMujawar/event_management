@@ -14,8 +14,6 @@ import toast from 'react-hot-toast';
 import EventCard from './EventCard';
 import './Events.css';
 
-const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
-
 const EventList = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -33,7 +31,7 @@ const EventList = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get(`${API}/events`);
+      const response = await axios.get('http://localhost:3001/events');
       setEvents(response.data);
     } catch (error) {
       console.error('Error fetching events:', error);
