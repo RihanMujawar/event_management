@@ -6,6 +6,8 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import './Login.css';
 
+const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -51,7 +53,7 @@ const Login = () => {
     const loadingToast = toast.loading('Signing in...');
 
     try {
-      const response = await axios.post('http://localhost:3001/login', formData);
+      const response = await axios.post(`${API}/login`, formData);
       
       if (response.data.success) {
         // Store auth data

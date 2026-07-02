@@ -6,6 +6,8 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import './register.css';
 
+const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
 const Register = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -36,7 +38,7 @@ const Register = () => {
     const loadingToast = toast.loading('Creating your account...');
 
     try {
-      const response = await axios.post('http://localhost:3001/register', {
+      const response = await axios.post(`${API}/register`, {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
