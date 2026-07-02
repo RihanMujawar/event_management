@@ -34,7 +34,7 @@ const Home = () => {
     if (user?.role === "admin") {
       toast.success("Welcome Admin!");
     } else if (user) {
-      toast.success("Welcome to GoPlanMe!");
+      toast.success("Welcome to EventManagement!");
     }
   }, [user]);
 

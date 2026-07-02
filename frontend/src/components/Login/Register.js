@@ -74,7 +74,7 @@ const Register = () => {
         <div className="auth-card">
           <div className="auth-header">
             <h2>Create Account</h2>
-            <p>Join GoPlanMe to start planning your events</p>
+            <p>Join EventManagement to start planning your events</p>
           </div>
 
           <form className="auth-form" onSubmit={handleSubmit}>
