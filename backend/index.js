@@ -35,7 +35,10 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: process.env.CORS_ORIGIN || '*',
+    credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -53,6 +56,7 @@ app.use((req, res, next) => {
 });
 
 // MongoDB Connection
+mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log('Connected to MongoDB'))
 .catch((err) => console.error('MongoDB connection error:', err));

@@ -15,6 +15,8 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import './EditProfile.css';
 
+const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
 const EditProfile = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -36,7 +38,7 @@ const EditProfile = () => {
   const fetchUserProfile = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3001/user/profile', {
+      const response = await axios.get(`${API}/user/profile`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -102,7 +104,7 @@ const EditProfile = () => {
       }
 
       const response = await axios.put(
-        'http://localhost:3001/user/profile',
+        `${API}/user/profile`,
         updateData,
         {
           headers: { Authorization: `Bearer ${token}` }

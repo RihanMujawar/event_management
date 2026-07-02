@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h3 className="footer-title">About GoPlanMe</h3>
+          <h3 className="footer-title">About EventManagement</h3>
           <p className="footer-description">
             Your one-stop platform for seamless event planning and management. We make it easy to create, 
             organize, and manage events of any size.
@@ -51,7 +51,7 @@ const Footer = () => {
           <div className="contact-info">
             <div className="contact-item">
               <Mail size={16} />
-              <a href="mailto:support@goplanme.com">support@goplanme.com</a>
+              <a href="mailto:support@eventmanagement.com">support@eventmanagement.com</a>
             </div>
             <div className="contact-item">
               <Phone size={16} />
@@ -67,7 +67,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <div className="footer-bottom-content">
-          <p>&copy; {new Date().getFullYear()} GoPlanMe. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} EventManagement. All rights reserved.</p>
           <div className="footer-bottom-links">
             <Link to="/terms">Terms</Link>
             <Link to="/privacy">Privacy</Link>
