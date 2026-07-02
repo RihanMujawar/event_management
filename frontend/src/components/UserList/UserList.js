@@ -5,7 +5,7 @@ import "./UserList.css";
 import toast from "react-hot-toast";
 import { Users, RefreshCw, AlertCircle } from "lucide-react";
 
-const API = process.env.REACT_APP_API_URL || "http://localhost:3001";
+const API = process.env.REACT_APP_API_URL || "/api";
 
 function UserList() {
     const [users, setUsers] = useState([]);

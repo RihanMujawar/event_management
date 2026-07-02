@@ -4,7 +4,7 @@ import { QRCodeSVG } from 'qrcode.react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Ticket, Calendar, MapPin, Clock, ChevronDown, ChevronUp, QrCode } from 'lucide-react';
 
-const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const API = process.env.REACT_APP_API_URL || '/api';
 
 export default function MyTickets() {
   const [tickets, setTickets] = useState([]);

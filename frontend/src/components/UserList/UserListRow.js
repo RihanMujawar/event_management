@@ -2,7 +2,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { Trash2 } from "lucide-react";
 
-const API = process.env.REACT_APP_API_URL || "http://localhost:3001";
+const API = process.env.REACT_APP_API_URL || "/api";
 
 function UserListRow({ user, onDeleted }) {
     const currentUser = JSON.parse(localStorage.getItem("user") || "{}");

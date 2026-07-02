@@ -3,7 +3,7 @@ import Axios from "axios";
 
 import './register.css';
 
-const API_ROUTE = "http://localhost:4000";
+const API_ROUTE = "/api";
 
 const RegistrationForm = (props) => {
   const [formData, setFormData] = useState({

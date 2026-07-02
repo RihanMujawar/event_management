@@ -6,8 +6,6 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import './register.css';
 
-const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
-
 const Register = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -38,7 +36,7 @@ const Register = () => {
     const loadingToast = toast.loading('Creating your account...');
 
     try {
-      const response = await axios.post(`${API}/register`, {
+      const response = await axios.post('/api/register', {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
@@ -76,7 +74,7 @@ const Register = () => {
         <div className="auth-card">
           <div className="auth-header">
             <h2>Create Account</h2>
-            <p>Join EventManagement to start planning your events</p>
+            <p>Join GoPlanMe to start planning your events</p>
           </div>
 
           <form className="auth-form" onSubmit={handleSubmit}>

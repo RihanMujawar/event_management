@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, CameraOff, CheckCircle, XCircle, ScanLine, Ticket as TicketIcon, Search } from 'lucide-react';
 import toast from 'react-hot-toast';
 
-const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const API = process.env.REACT_APP_API_URL || '/api';
 
 export default function ScanQR() {
   const [scanning, setScanning] = useState(false);

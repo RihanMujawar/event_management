@@ -14,8 +14,6 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import './eventform.css';
 
-const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
-
 const UpdateEvent = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -43,7 +41,7 @@ const UpdateEvent = () => {
       const token = localStorage.getItem('token');
       console.log('Fetching event with ID:', id);
       
-      const response = await axios.get(`${API}/events/${id}`, {
+      const response = await axios.get(`/api/events/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -128,7 +126,7 @@ const UpdateEvent = () => {
       console.log('Sending update for event:', id, 'with data:', formData);
       
       const response = await axios.put(
-        `${API}/events/${id}`,
+        `/api/events/${id}`,
         formData,
         {
           headers: {

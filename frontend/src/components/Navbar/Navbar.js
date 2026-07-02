@@ -101,8 +101,8 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
-          <img src="/logo_circle.jpg" alt="EventManagement" height="40" />
-          <span>EventManagement</span>
+          <img src="/logo_circle.jpg" alt="GoPlanMe" height="40" />
+          <span>GoPlanMe</span>
         </Link>
 
         <div className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
