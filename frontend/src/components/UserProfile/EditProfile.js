@@ -36,7 +36,7 @@ const EditProfile = () => {
   const fetchUserProfile = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3001/user/profile', {
+      const response = await axios.get('/api/user/profile', {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -102,7 +102,7 @@ const EditProfile = () => {
       }
 
       const response = await axios.put(
-        'http://localhost:3001/user/profile',
+        '/api/user/profile',
         updateData,
         {
           headers: { Authorization: `Bearer ${token}` }

@@ -3,7 +3,7 @@ import Axios from "axios";
 
 import './ContactPage.css'; 
 
-const API_ROUTE = "http://localhost:4000";
+const API_ROUTE = "/api";
 
 class ContactPage extends Component {
   constructor(props) {

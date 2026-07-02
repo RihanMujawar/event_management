@@ -5,7 +5,7 @@ import { CreditCard, Lock, CheckCircle, ArrowLeft, Loader } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const API = process.env.REACT_APP_API_URL || '/api';
 
 export default function PaymentForm() {
   const location = useLocation();
